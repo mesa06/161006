@@ -1,0 +1,45 @@
+<html>
+<head>
+    <style>
+        #box {
+            background-color: gray;
+            width: 100px;
+            height: 100px;
+            padding: 50px;
+        }
+        
+        #box div {
+            background-color: orange;
+            height: 100px;
+            width: 100px;
+        }
+        
+    </style>
+    
+</head>
+<body>
+    <div id="box">
+        <div id="orange">Orange</div>
+    </div>
+    <div id="debug">Report:<br></div>
+    
+    <script>
+        function boxClick() {
+            debug.innerHTML += "Box clicked <br>";
+        }
+        function orangeClick() {
+            debug.innerHTML += "Orange clicked <br>";
+            event.cancelBubble = true;
+        }
+        
+        orange.onclick = orangeClick;
+        box.onclick = boxClick;
+        orange.addEventListener("click", orangeClick, true);
+        box.addEventListener("click", boxClick, true);
+        
+    </script>
+    
+    
+    
+</body>
+</html>
